@@ -1,0 +1,105 @@
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Istok Web', sans-serif;
+  background-color: #f6f6f6 !important;
+}
+
+a {
+  text-decoration: none;
+  color: #1e1e1e;
+}
+
+.active {
+  color: #1eccb0;
+}
+
+/* icon size */
+.icon-size {
+  width: 32px !important;
+  height: 32px !important;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/*    9. Create a root stacking context
+  */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* scrollbar styles  */
+
+/* Change scrollbar styles */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff; /* Track background */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #f6f6f6; /* Scrollbar thumb color */
+  border-radius: 6px; /* Rounded corners */
+  border: 3px solid #f0f0f0; /* Adds space around the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #e8faf7; /* Thumb color on hover */
+}
