@@ -1,12 +1,13 @@
 import { Box, Button, Group, Input, NavLink, Text } from '@mantine/core';
 import { Search, User } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { RoutePaths } from '../../routes/routePath';
 import { useDisclosure } from '@mantine/hooks';
 import AuthModal from '../AuthModal/AuthModal';
 
 const Header = () => {
   const [opened, { open, close }] = useDisclosure(false);
+  const location = useLocation();
 
   return (
     <>
@@ -16,10 +17,12 @@ const Header = () => {
             SparkFlow AI
           </Text>
           <Group>
-            <Input
-              placeholder='Search courses'
-              leftSection={<Search size={20} />}
-            />
+            {location.pathname === '/courses' && (
+              <Input
+                placeholder='Search courses'
+                leftSection={<Search size={20} />}
+              />
+            )}
             <Button variant='filled' onClick={open}>
               <User size={20} style={{ marginRight: 5 }} /> Login/Register
             </Button>
