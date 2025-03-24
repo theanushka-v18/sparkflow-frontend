@@ -6,12 +6,16 @@ import {
   Modal,
   NumberInput,
   PasswordInput,
+  Text,
   Title,
 } from '@mantine/core';
 import { AtSign } from 'lucide-react';
 import classes from './authModal.module.css';
+import { useState } from 'react';
 
 const AuthModal = ({ opened, close }: any) => {
+  const [isRegistered, setIsRegistered] = useState(false);
+
   return (
     <Modal
       radius={30}
@@ -35,10 +39,22 @@ const AuthModal = ({ opened, close }: any) => {
       }}
     >
       <Title order={2} ta={'center'}>
-        Register to continue
+        {!isRegistered ? 'Register' : 'Login'} to continue
       </Title>
       <Box w={'30%'} my={'xl'} m={'auto'} className={classes.input_container}>
-        <Input w={'100%'} placeholder='Name' size='md' required />
+        {!isRegistered && (
+          <>
+            <Input w={'100%'} placeholder='Name' size='md' required />
+            <NumberInput
+              hideControls
+              w={'100%'}
+              mt={'md'}
+              placeholder='Mobile number'
+              size='md'
+              required
+            />
+          </>
+        )}
         <Input
           w={'100%'}
           mt={'md'}
@@ -46,14 +62,6 @@ const AuthModal = ({ opened, close }: any) => {
           size='md'
           required
           leftSection={<AtSign size={20} />}
-        />
-        <NumberInput
-          hideControls
-          w={'100%'}
-          mt={'md'}
-          placeholder='Mobile number'
-          size='md'
-          required
         />
         <PasswordInput
           w={'100%'}
@@ -63,17 +71,31 @@ const AuthModal = ({ opened, close }: any) => {
           required
         />
         <Group>
-          <Button
-            bg={'#f6f6f6'}
-            c={'var(--mantine-color-blue-6)'}
-            mt={'xl'}
-            size='xl'
-            radius={'xl'}
-            px={60}
-            onClick={() => {}}
-          >
-            Register
-          </Button>
+          {!isRegistered ? (
+            <Button
+              bg={'#f6f6f6'}
+              c={'var(--mantine-color-blue-6)'}
+              mt={'xl'}
+              size='xl'
+              radius={'xl'}
+              px={60}
+              onClick={() => {}}
+            >
+              Register
+            </Button>
+          ) : (
+            <Button
+              bg={'#f6f6f6'}
+              c={'var(--mantine-color-blue-6)'}
+              mt={'xl'}
+              size='xl'
+              radius={'xl'}
+              px={60}
+              onClick={() => {}}
+            >
+              Login
+            </Button>
+          )}
           <Button
             onClick={close}
             bg={'var(--mantine-color-red-4)'}
@@ -87,6 +109,29 @@ const AuthModal = ({ opened, close }: any) => {
           </Button>
         </Group>
       </Box>
+      {!isRegistered ? (
+        <Text>
+          Already an user?{' '}
+          <Button
+            p={0}
+            bg={'transparent'}
+            onClick={() => setIsRegistered((prev) => !prev)}
+          >
+            Login
+          </Button>{' '}
+        </Text>
+      ) : (
+        <Text>
+          New user?{' '}
+          <Button
+            p={0}
+            bg={'transparent'}
+            onClick={() => setIsRegistered((prev) => !prev)}
+          >
+            Register
+          </Button>{' '}
+        </Text>
+      )}
     </Modal>
   );
 };
