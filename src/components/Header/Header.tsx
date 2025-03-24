@@ -2,8 +2,12 @@ import { Box, Button, Group, Input, NavLink, Text } from '@mantine/core';
 import { Search, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { RoutePaths } from '../../routes/routePath';
+import { useDisclosure } from '@mantine/hooks';
+import AuthModal from '../AuthModal/AuthModal';
 
 const Header = () => {
+  const [opened, { open, close }] = useDisclosure(false);
+
   return (
     <>
       <Box style={{ boxShadow: '5px 5px 10px var(--mantine-color-gray-3)' }}>
@@ -16,7 +20,7 @@ const Header = () => {
               placeholder='Search courses'
               leftSection={<Search size={20} />}
             />
-            <Button variant='filled'>
+            <Button variant='filled' onClick={open}>
               <User size={20} style={{ marginRight: 5 }} /> Login/Register
             </Button>
           </Group>
@@ -54,6 +58,7 @@ const Header = () => {
           />
         </Text>
       </Group>
+      {opened && <AuthModal opened={opened} close={close} />}
     </>
   );
 };

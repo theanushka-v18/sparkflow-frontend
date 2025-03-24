@@ -1,0 +1,7 @@
+.social_icon {
+    padding: 0;
+}
+
+.social_icon:hover {
+    background-color: transparent;
+}

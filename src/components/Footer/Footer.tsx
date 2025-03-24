@@ -1,10 +1,11 @@
-import { Box, Group, Text, Title, Image } from '@mantine/core';
+import { Box, Group, Text, Title, Image, Button } from '@mantine/core';
 import { Mail, Smartphone } from 'lucide-react';
 import facebook from '../../assets/facebook.png';
 import instagram from '../../assets/instagram.png';
 import linkedin from '../../assets/linkedin.png';
 import twitter from '../../assets/twitter.png';
 import youtube from '../../assets/youtube logo.png';
+import classes from './footer.module.css';
 
 const Footer = () => {
   return (
@@ -27,11 +28,21 @@ const Footer = () => {
             <Smartphone size={20} style={{ marginRight: 5 }} /> +91 1234567890
           </Text>
           <Group mt={'md'}>
-            <Image style={{ cursor: 'pointer' }} src={instagram} />
-            <Image style={{ cursor: 'pointer' }} src={facebook} />
-            <Image style={{ cursor: 'pointer' }} src={twitter} />
-            <Image style={{ cursor: 'pointer' }} src={linkedin} />
-            <Image style={{ cursor: 'pointer' }} src={youtube} />
+            <Button className={classes.social_icon}>
+              <Image style={{ cursor: 'pointer' }} src={instagram} />
+            </Button>
+            <Button className={classes.social_icon}>
+              <Image style={{ cursor: 'pointer' }} src={facebook} />
+            </Button>
+            <Button className={classes.social_icon}>
+              <Image style={{ cursor: 'pointer' }} src={twitter} />
+            </Button>
+            <Button className={classes.social_icon}>
+              <Image style={{ cursor: 'pointer' }} src={linkedin} />
+            </Button>
+            <Button className={classes.social_icon}>
+              <Image style={{ cursor: 'pointer' }} src={youtube} />
+            </Button>
           </Group>
           <Text mt={'md'}>
             &copy; 2024 Noida Uttar Pradesh India, Inc. All Rights Reserved
