@@ -4,6 +4,7 @@ import user from '../../assets/user.png';
 import { ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { RoutePaths } from '../../routes/routePath';
+import CustomCarousel from '../../components/CustomCarousel/CustomCarousel';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ const Home = () => {
             </Title>
             <Text mt={'sm'} w={'60%'} c={'var(--mantine-color-gray-6)'}>
               Our support system is live again, this time it is bigger, better
-              and faster. Experience a tech community like never seen before
+              and faster. Experience a tech community like never seen before
             </Text>
             <Button
               variant='filled'
@@ -41,6 +42,7 @@ const Home = () => {
           <Image src={user} />
         </Group>
       </Box>
+      <CustomCarousel />
     </>
   );
 };
