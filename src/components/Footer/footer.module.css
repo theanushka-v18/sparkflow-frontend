@@ -1,5 +1,6 @@
 .social_icon {
   padding: 0 !important;
+  background-color: var(--mantine-color-teal-6)!important;
 }
 
 .social_icon:hover {

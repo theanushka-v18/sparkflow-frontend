@@ -1,0 +1,10 @@
+.navLink {
+  border-bottom: 2px solid transparent !important;
+  padding-block: 4px !important;
+}
+
+.navLink:hover {
+  background-color: transparent !important;
+  border-bottom: 2px solid var(--mantine-color-teal-6) !important;
+  border-radius: 8px;
+}

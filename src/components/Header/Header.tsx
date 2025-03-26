@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { RoutePaths } from '../../routes/routePath';
 import { useDisclosure } from '@mantine/hooks';
 import AuthModal from '../AuthModal/AuthModal';
+import classes from './header.module.css';
 
 const Header = () => {
   const [opened, { open, close }] = useDisclosure(false);
@@ -23,7 +24,11 @@ const Header = () => {
                 leftSection={<Search size={20} />}
               />
             )}
-            <Button variant='filled' onClick={open}>
+            <Button
+              variant='filled'
+              bg={'var(--mantine-color-teal-6)'}
+              onClick={open}
+            >
               <User size={20} style={{ marginRight: 5 }} /> Login/Register
             </Button>
           </Group>
@@ -31,24 +36,41 @@ const Header = () => {
       </Box>
       <Group justify='space-between' py={'sm'} px={'xl'}>
         <Text>
-          <NavLink label='Home' component={Link} to={RoutePaths.home} />
-        </Text>
-        <Text>
-          <NavLink label='Courses' component={Link} to={RoutePaths.courses} />
+          <NavLink
+            className={classes.navLink}
+            label='Home'
+            component={Link}
+            to={RoutePaths.home}
+          />
         </Text>
         <Text>
           <NavLink
+            className={classes.navLink}
+            label='Courses'
+            component={Link}
+            to={RoutePaths.courses}
+          />
+        </Text>
+        <Text>
+          <NavLink
+            className={classes.navLink}
             label='Community Support'
             component={Link}
             to={RoutePaths.communitySupport}
           />
         </Text>
         <Text>
-          <NavLink label='Lab' component={Link} to={RoutePaths.lab} />
+          <NavLink
+            label='Lab'
+            component={Link}
+            to={RoutePaths.lab}
+            className={classes.navLink}
+          />
         </Text>
         <Text>
           <NavLink
             label='Internship Portal'
+            className={classes.navLink}
             component={Link}
             to={RoutePaths.internshipPortal}
           />
@@ -56,6 +78,7 @@ const Header = () => {
         <Text>
           <NavLink
             label='Become an Affiliate'
+            className={classes.navLink}
             component={Link}
             to={RoutePaths.becomeAnAffiliate}
           />

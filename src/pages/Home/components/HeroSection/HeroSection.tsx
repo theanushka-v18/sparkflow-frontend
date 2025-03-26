@@ -35,7 +35,7 @@ const HeroSection = () => {
           <Title order={1} fw={600}>
             Learning with SparkFlow AI made
           </Title>
-          <Title order={1} mt={'sm'} c={'var(--mantine-color-blue-6)'} fw={600}>
+          <Title order={1} mt={'sm'} c={'var(--mantine-color-teal-6)'} fw={600}>
             <Typewriter
               words={['<Practical />', '<Intuitive />']} // The constant value to display
               loop={Infinity} // Number of times to loop (1 means no loop)

@@ -20,7 +20,7 @@ const Home = () => {
           m={'auto'}
           mt={'lg'}
           w={'90%'}
-          bg={'var(--mantine-color-blue-1)'}
+          bg={'var(--mantine-color-teal-1)'}
           style={{ borderRadius: '15px' }}
         >
           <Box>
@@ -33,6 +33,7 @@ const Home = () => {
             </Text>
             <Button
               variant='filled'
+              bg={'var(--mantine-color-teal-6)'}
               mt={'md'}
               onClick={() => navigate(RoutePaths.communitySupport)}
             >

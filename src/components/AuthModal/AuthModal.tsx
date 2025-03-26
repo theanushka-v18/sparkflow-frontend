@@ -23,25 +23,32 @@ const AuthModal = ({ opened, close }: any) => {
       onClose={close}
       withCloseButton={false}
       centered
-      fullScreen
       styles={{
         body: {
-          background: 'var(--mantine-color-blue-6)',
-          height: '100vh',
+          background: 'rgba(255, 255, 255, 0.15)',
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(255, 255, 255, 0.2)',
+          borderRadius: '30px',
+          boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
           flexDirection: 'column',
+          padding: '2rem',
         },
-        root: {
-          opacity: '90%',
+        content: {
+          backgroundColor: 'transparent',
+          boxShadow: 'none',
+        },
+        overlay: {
+          backdropFilter: 'blur(3px)',
         },
       }}
     >
       <Title order={2} ta={'center'}>
         {!isRegistered ? 'Register' : 'Login'} to continue
       </Title>
-      <Box w={'30%'} my={'xl'} m={'auto'} className={classes.input_container}>
+      <Box w={'70%'} my={'xl'} m={'auto'} className={classes.input_container}>
         {!isRegistered && (
           <>
             <Input w={'100%'} placeholder='Name' size='md' required />
@@ -73,24 +80,24 @@ const AuthModal = ({ opened, close }: any) => {
         <Group>
           {!isRegistered ? (
             <Button
-              bg={'#f6f6f6'}
-              c={'var(--mantine-color-blue-6)'}
+              bg={'var(--mantine-color-teal-6)'}
+              c={'#f6f6f6'}
               mt={'xl'}
-              size='xl'
+              size='md'
               radius={'xl'}
-              px={60}
+              px={20}
               onClick={() => {}}
             >
               Register
             </Button>
           ) : (
             <Button
-              bg={'#f6f6f6'}
-              c={'var(--mantine-color-blue-6)'}
+              bg={'var(--mantine-color-teal-6)'}
+              c={'#f6f6f6'}
               mt={'xl'}
-              size='xl'
+              size='md'
               radius={'xl'}
-              px={60}
+              px={24}
               onClick={() => {}}
             >
               Login
@@ -98,12 +105,12 @@ const AuthModal = ({ opened, close }: any) => {
           )}
           <Button
             onClick={close}
-            bg={'var(--mantine-color-red-4)'}
-            c={'#f6f6f6)'}
+            bg={'#f6f6f6'}
+            c={'var(--mantine-color-teal-6)'}
             mt={'xl'}
-            size='xl'
+            size='md'
             radius={'xl'}
-            px={60}
+            px={20}
           >
             Cancel
           </Button>

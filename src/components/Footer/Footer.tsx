@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <>
       <Group
-        bg={'var(--mantine-color-blue-6)'}
+        bg={'var(--mantine-color-teal-6)'}
         justify='space-between'
         py={'xl'}
         px={80}
