@@ -51,7 +51,22 @@ const AuthModal = ({ opened, close }: any) => {
       <Box w={'70%'} my={'xl'} m={'auto'} className={classes.input_container}>
         {!isRegistered && (
           <>
-            <Input w={'100%'} placeholder='Name' size='md' required />
+            <Input
+              w={'100%'}
+              placeholder='Name'
+              size='md'
+              required
+              styles={{
+                input: {
+                  background: 'rgba(255, 255, 255, 0.2)',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                  color: 'white',
+                  '::placeholder': {
+                    color: 'rgba(255, 255, 255, 0.7)',
+                  },
+                },
+              }}
+            />
             <NumberInput
               hideControls
               w={'100%'}
@@ -59,6 +74,16 @@ const AuthModal = ({ opened, close }: any) => {
               placeholder='Mobile number'
               size='md'
               required
+              styles={{
+                input: {
+                  background: 'rgba(255, 255, 255, 0.2)',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                  color: 'white',
+                  '::placeholder': {
+                    color: 'rgba(255, 255, 255, 0.7)',
+                  },
+                },
+              }}
             />
           </>
         )}
@@ -68,7 +93,17 @@ const AuthModal = ({ opened, close }: any) => {
           placeholder='Email address'
           size='md'
           required
-          leftSection={<AtSign size={20} />}
+          leftSection={<AtSign size={20} color='rgba(255, 255, 255, 0.7)' />}
+          styles={{
+            input: {
+              background: 'rgba(255, 255, 255, 0.2)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              color: 'white',
+              '::placeholder': {
+                color: 'rgba(255, 255, 255, 0.7)',
+              },
+            },
+          }}
         />
         <PasswordInput
           w={'100%'}
@@ -76,6 +111,25 @@ const AuthModal = ({ opened, close }: any) => {
           placeholder='Password'
           size='md'
           required
+          styles={{
+            input: {
+              background: 'rgba(255, 255, 255, 0.2)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              color: 'white',
+              '::placeholder': {
+                color: 'rgba(255, 255, 255, 0.7)',
+              },
+            },
+            innerInput: {
+              color: 'white',
+              '::placeholder': {
+                color: 'rgba(255, 255, 255, 0.7)',
+              },
+            },
+            visibilityToggle: {
+              color: 'rgba(255, 255, 255, 0.7)',
+            },
+          }}
         />
         <Group>
           {!isRegistered ? (
