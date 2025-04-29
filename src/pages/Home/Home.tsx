@@ -7,7 +7,8 @@ const Home = () => {
     <>
       <HeroSection />
       <CommunitySupport />
-      <CustomCarousel title='Our Courses' />
+      <CustomCarousel title='Our Courses' differentiator='courses' />
+      <CustomCarousel title='Success Stories' differentiator='testimonials' />
     </>
   );
 };

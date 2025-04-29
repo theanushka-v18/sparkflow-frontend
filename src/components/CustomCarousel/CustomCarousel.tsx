@@ -2,27 +2,15 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import { Children, ReactNode, useRef, useState } from 'react';
-import {
-  ActionIcon,
-  Box,
-  Button,
-  Card,
-  Group,
-  Image,
-  Text,
-  Title,
-} from '@mantine/core';
-import {
-  CalendarDays,
-  ChevronLeft,
-  ChevronRight,
-  Forward,
-  ListVideo,
-  UserRoundCheck,
-} from 'lucide-react';
+import { ActionIcon, Box, Group, Title } from '@mantine/core';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import youtubeImg from '../../assets/image 4.png';
+import CourseCard from '../CourseCard/CourseCard';
+import company1 from '../../assets/company1.png';
+import company2 from '../../assets/company2.png';
+import TestimonialCard from '../TestimonialCard/TestimonialCard';
 
-const cardsData = [
+const courseCardsData = [
   {
     imgSrc: youtubeImg,
     title: 'Fullstack Data Science',
@@ -95,12 +83,84 @@ const cardsData = [
   },
 ];
 
+const testimonialCardsData = [
+  {
+    name: 'Khushboo Gaur',
+    role: 'AI/ML Engineer',
+    content:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
+    companyFrom: company1,
+    companyTo: company2,
+  },
+  {
+    name: 'Khushboo Gaur',
+    role: 'AI/ML Engineer',
+    content:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
+    companyFrom: company1,
+    companyTo: company2,
+  },
+  {
+    name: 'Khushboo Gaur',
+    role: 'AI/ML Engineer',
+    content:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
+    companyFrom: company1,
+    companyTo: company2,
+  },
+  {
+    name: 'Khushboo Gaur',
+    role: 'AI/ML Engineer',
+    content:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
+    companyFrom: company1,
+    companyTo: company2,
+  },
+  {
+    name: 'Khushboo Gaur',
+    role: 'AI/ML Engineer',
+    content:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
+    companyFrom: company1,
+    companyTo: company2,
+  },
+  {
+    name: 'Khushboo Gaur',
+    role: 'AI/ML Engineer',
+    content:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
+    companyFrom: company1,
+    companyTo: company2,
+  },
+  {
+    name: 'Khushboo Gaur',
+    role: 'AI/ML Engineer',
+    content:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
+    companyFrom: company1,
+    companyTo: company2,
+  },
+  {
+    name: 'Khushboo Gaur',
+    role: 'AI/ML Engineer',
+    content:
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
+    companyFrom: company1,
+    companyTo: company2,
+  },
+];
+
 interface ICustomCarouselProps {
   title: string;
   actionButtons?: ReactNode;
+  differentiator: string;
 }
 
-const CustomCarousel = ({ title, actionButtons }: ICustomCarouselProps) => {
+const CustomCarousel = ({
+  title,
+  actionButtons,
+  differentiator,
+}: ICustomCarouselProps) => {
   const sliderRef = useRef<any>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slideCount, setSlideCount] = useState(0);
@@ -146,81 +206,13 @@ const CustomCarousel = ({ title, actionButtons }: ICustomCarouselProps) => {
           }}
           {...settings}
         >
-          {cardsData.map((item, idx) => (
-            <Box key={idx}>
-              <Card mx={'xl'} radius={'md'}>
-                <Image src={item.imgSrc} />
-                <Group justify='space-between' mt={'md'}>
-                  <Title order={3}>{item.title}</Title>
-                  <ActionIcon
-                    bg={'var(--mantine-color-teal-0)'}
-                    c={'var(--mantine-color-teal-6)'}
-                  >
-                    <Forward size={'xl'} />
-                  </ActionIcon>
-                </Group>
-                <Group mt={'md'}>
-                  <ActionIcon
-                    bg={'transparent'}
-                    c={'var(--mantine-color-gray-6)'}
-                  >
-                    <CalendarDays size={'xl'} />
-                  </ActionIcon>
-                  <Title order={6} c={'var(--mantine-color-gray-6)'}>
-                    {item.startDate}
-                  </Title>
-                </Group>
-                <Group mt={'md'}>
-                  <ActionIcon
-                    bg={'transparent'}
-                    c={'var(--mantine-color-gray-6)'}
-                  >
-                    <ListVideo size={'xl'} />
-                  </ActionIcon>
-                  <Title order={6} c={'var(--mantine-color-gray-6)'}>
-                    {item.what}
-                  </Title>
-                </Group>
-                <Group mt={'md'}>
-                  <ActionIcon
-                    bg={'transparent'}
-                    c={'var(--mantine-color-gray-6)'}
-                  >
-                    <UserRoundCheck size={'xl'} />
-                  </ActionIcon>
-                  <Title order={6} c={'var(--mantine-color-gray-6)'}>
-                    {item.forWhom}
-                  </Title>
-                </Group>
-
-                <Group mt={'xl'} justify='space-between'>
-                  <Box>
-                    <Title order={2} fw={'lighter'}>
-                      ${item.discountedPrice}
-                    </Title>
-                    <Group>
-                      <Text size='xs' fw={'bold'} td={'line-through'}>
-                        ${item.orgPrice}
-                      </Text>
-                      <Text
-                        size='xs'
-                        fw={'bold'}
-                        c={'var(--mantine-color-lime-6)'}
-                      >
-                        {item.discountPercentage}% Discount
-                      </Text>
-                    </Group>
-                  </Box>
-                  <Button
-                    bg={'var(--mantine-color-teal-0)'}
-                    c={'var(--mantine-color-teal-6)'}
-                  >
-                    Explore
-                  </Button>
-                </Group>
-              </Card>
-            </Box>
-          ))}
+          {differentiator === 'courses'
+            ? courseCardsData.map((item, idx) => (
+                <CourseCard item={item} key={idx} />
+              ))
+            : testimonialCardsData.map((item, idx) => (
+                <TestimonialCard item={item} key={idx} />
+              ))}
         </Slider>
       </Box>
 
