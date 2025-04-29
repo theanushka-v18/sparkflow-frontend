@@ -28,8 +28,8 @@ const HeroSection = () => {
         justify='space-between'
         py={'sm'}
         px={'xl'}
-        align='flex-start'
         mt={'lg'}
+        align='flex-start'
       >
         <Box mt={'xl'} w={'50%'}>
           <Title order={1} fw={600}>
